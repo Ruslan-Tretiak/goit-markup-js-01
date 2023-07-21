@@ -233,12 +233,12 @@
 // }
 // console.log(logger(add, basket));
 
-const selectors = {
-  box: document.querySelector('.js-item'),
-  left: document.querySelector('.js-step-left'),
-  down: document.querySelector('.js-step-down'),
-  input: document.querySelector('.js-input')
-}
+// const selectors = {
+//   box: document.querySelector('.js-item'),
+//   left: document.querySelector('.js-step-left'),
+//   down: document.querySelector('.js-step-down'),
+//   input: document.querySelector('.js-input')
+// }
 // console.log(selectors.input.value);
 // box.addEventListener('click', handlerClick);
 // let step = 0;
@@ -260,8 +260,29 @@ const selectors = {
 //   selectors.box.style.marginTop = `${stepDown}px`
 //   selectors.input.addEventListener('change', handlerQuery)
 // }Produce nasty just assisting that he should meet up unexpected pleasure
-selectors.input.addEventListner('input', hendlerQuery)
+// selectors.input.addEventListner('input', hendlerQuery)
 
-function hendlerQuery(evt){
-  console.log(evt.currentTarget)
+// function hendlerQuery(evt){
+//   console.log(evt.currentTarget)
+// }
+
+// ..................lesson 7
+const content = document.querySelector('.content')
+
+let player = 'X';
+let markup = '';
+
+for (let i = 1; i <= 9; i+=1){
+  markup += '<div class="item"></div>';
+}
+
+content.insertAdjacentHTML('beforeend', markup);
+content.addEventListener('click', handlerClick)
+
+function handlerClick(evt) {
+  if (evt.target === evt.currentTarget || evt.target.textContent) {
+    return;
+  }
+  evt.target.textContent = player;
+  player = player === 'X' ? 'O' : 'X';
 }
